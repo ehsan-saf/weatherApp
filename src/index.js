@@ -1,4 +1,3 @@
-import getWeather from "./weather";
+import initControls from "./userInput";
 
-const wd = getWeather("tehran");
-wd.then((response) => console.log(response));
+initControls();

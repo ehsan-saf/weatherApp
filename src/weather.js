@@ -1,6 +1,5 @@
 export default async function getWeather(location) {
   const data = (await getData(location)).current;
-  console.log(data);
   return {
     condition: data.condition.text,
     icon: data.condition.icon,
