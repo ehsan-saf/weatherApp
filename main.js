@@ -20,13 +20,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _use
 
 /***/ }),
 
+/***/ "./src/showWeather.js":
+/*!****************************!*\
+  !*** ./src/showWeather.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ displayWeather)\n/* harmony export */ });\nfunction displayWeather(current) {\r\n  console.log(current);\r\n  document.querySelector(\".weather-icon\").src = getIcon(current);\r\n}\r\n\r\nfunction getIcon(data) {\r\n  let time = \"\";\r\n  const name = data.icon.slice(-7);\r\n  if (data.is_day) {\r\n    time = \"day\";\r\n  } else {\r\n    time = \"night\";\r\n  }\r\n  const iconUrl = `./icons/${time}/${name}`;\r\n  return iconUrl;\r\n}\r\n\r\nfunction createBox() {}\r\n\n\n//# sourceURL=webpack://template/./src/showWeather.js?");
+
+/***/ }),
+
 /***/ "./src/userInput.js":
 /*!**************************!*\
   !*** ./src/userInput.js ***!
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ initControls)\n/* harmony export */ });\n/* harmony import */ var _weather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather */ \"./src/weather.js\");\n\r\n\r\nconst input = document.getElementById(\"location-name\");\r\nconst searchButton = document.querySelector(\".search-button\");\r\n\r\nfunction initControls() {\r\n  searchButton.addEventListener(\"click\", getInput);\r\n}\r\n\r\nfunction getInput() {\r\n  if (input.value.trim() !== \"\") {\r\n    const weatherPromise = (0,_weather__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(input.value);\r\n    weatherPromise.then((rs) => console.log(rs));\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://template/./src/userInput.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ initControls)\n/* harmony export */ });\n/* harmony import */ var _weather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather */ \"./src/weather.js\");\n/* harmony import */ var _showWeather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./showWeather */ \"./src/showWeather.js\");\n\r\n\r\n\r\nconst input = document.querySelector(\".location-input\");\r\nconst searchButton = document.querySelector(\".search-button\");\r\n\r\nfunction initControls() {\r\n  searchButton.addEventListener(\"click\", getInput);\r\n}\r\n\r\nfunction getInput() {\r\n  if (input.value.trim() !== \"\") {\r\n    const weatherPromise = (0,_weather__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(input.value);\r\n    weatherPromise.then((rs) => (0,_showWeather__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(rs));\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://template/./src/userInput.js?");
 
 /***/ }),
 
@@ -36,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getWeather)\n/* harmony export */ });\nasync function getWeather(location) {\r\n  const data = await getData(location);\r\n  const { current } = data;\r\n  return {\r\n    condition: current.condition.text,\r\n    icon: current.condition.icon,\r\n    temp_c: current.temp_c,\r\n    temp_f: current.temp_f,\r\n    humidity: current.humidity,\r\n  };\r\n}\r\n\r\nasync function getData(location) {\r\n  const address = `https://api.weatherapi.com/v1/forecast.json?key=92af089f4bee44ea93b193454241501&q=${location};\r\n    `;\r\n  const request = await fetch(address);\r\n  return request.json();\r\n}\r\n\n\n//# sourceURL=webpack://template/./src/weather.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getWeather)\n/* harmony export */ });\nasync function getWeather(location) {\r\n  const data = await getData(location);\r\n  console.log(data);\r\n  const { current } = data;\r\n  return {\r\n    condition: current.condition.text,\r\n    icon: current.condition.icon,\r\n    is_day: current.is_day,\r\n    temp_c: current.temp_c,\r\n    temp_f: current.temp_f,\r\n    humidity: current.humidity,\r\n  };\r\n}\r\n\r\nasync function getData(location) {\r\n  const address = `https://api.weatherapi.com/v1/forecast.json?key=92af089f4bee44ea93b193454241501&q=${location};\r\n    `;\r\n  const request = await fetch(address);\r\n  return request.json();\r\n}\r\n\n\n//# sourceURL=webpack://template/./src/weather.js?");
 
 /***/ })
 
