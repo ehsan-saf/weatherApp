@@ -1,9 +1,11 @@
 export default async function getWeather(location) {
   const data = await getData(location);
+  console.log(data);
   const { current } = data;
   return {
     condition: current.condition.text,
     icon: current.condition.icon,
+    is_day: current.is_day,
     temp_c: current.temp_c,
     temp_f: current.temp_f,
     humidity: current.humidity,
