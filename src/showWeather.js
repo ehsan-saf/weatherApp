@@ -24,10 +24,14 @@ function createBox(data) {
   const icon = document.createElement("img");
   icon.src = getIconSrc(data);
 
+  const condition = document.createElement("p");
+  condition.classList.add(".condition");
+
   const temp = document.createElement("p");
   temp.textContent = data.temp_c;
 
   box.appendChild(icon);
+  box.appendChild(condition);
   box.appendChild(temp);
 
   return box;
