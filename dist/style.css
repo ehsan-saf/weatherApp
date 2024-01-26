@@ -8,6 +8,10 @@
   --input-border-color: rgb(70, 70, 255);
 }
 
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 div {
   border: 1px solid red;
 }
@@ -24,6 +28,7 @@ div {
   grid-column: 2;
   display: grid;
   grid-template-rows: 75px 1fr;
+  justify-items: center;
 }
 
 /* Search Location */
@@ -104,6 +109,14 @@ div {
   justify-content: center;
   gap: 5px;
   font-size: 1.1em;
+}
+
+/* Full Weather Info */
+
+.full-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* Weathers List */

@@ -1,3 +1,5 @@
+import getDateInfo from "./date";
+
 const location = document.querySelector(".location");
 const date = document.querySelector(".date");
 const today_icon = document.querySelector(".today-icon");
@@ -14,6 +16,7 @@ export default function displayWeather(data) {
 function setMainData(data) {
   location.textContent = `${data.city} , ${data.country}`;
   today_icon.src = getIconSrc(data);
+  date.textContent = getDateInfo();
   today_temp.textContent = `${data.temp_c}`;
   today_condition.textContent = data.condition;
   today_humidity.textContent = `Humidity: ${data.humidity}%`;
