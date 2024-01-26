@@ -26,6 +26,7 @@ function createBox(data) {
 
   const condition = document.createElement("p");
   condition.classList.add(".condition");
+  condition.textContent = data.condition;
 
   const temp = document.createElement("p");
   temp.textContent = data.temp_c;
