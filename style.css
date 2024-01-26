@@ -119,6 +119,23 @@ div {
   gap: 10px;
 }
 
+.today-main p::before {
+  padding-right: 5px;
+  vertical-align: -30%;
+}
+
+.today-humidity::before {
+  content: url(./icons/humidity.png);
+}
+
+.today-wind::before {
+  content: url(./icons/wind.png);
+}
+
+.today-uv::before {
+  content: url(./icons/uv.png);
+}
+
 /* Weathers List */
 
 .weather-list {
