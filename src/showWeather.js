@@ -1,8 +1,24 @@
-const list = document.querySelector(".weather-list");
+const location = document.querySelector(".location");
+const date = document.querySelector(".date");
+const today_icon = document.querySelector(".today-icon");
+const today_temp = document.querySelector(".today-temp");
+const today_condition = document.querySelector(".today-condition");
+const today_humidity = document.querySelector(".today-humidity");
+const today_wind = document.querySelector(".today-wind");
+const today_uv = document.querySelector(".today-uv");
 
-export default function displayWeather(current) {
-  const box = createBox(current);
-  list.appendChild(box);
+export default function displayWeather(data) {
+  setMainData(data);
+}
+
+function setMainData(data) {
+  location.textContent = `${data.city} , ${data.country}`;
+  today_icon.src = getIconSrc(data);
+  today_temp.textContent = `${data.temp_c}`;
+  today_condition.textContent = data.condition;
+  today_humidity.textContent = `Humidity: ${data.humidity}%`;
+  today_wind.textContent = `Wind: ${data.wind} kph`;
+  today_uv.textContent = `UV: ${data.uv}`;
 }
 
 function getIconSrc(data) {
@@ -17,23 +33,25 @@ function getIconSrc(data) {
   return iconSrc;
 }
 
-function createBox(data) {
-  const box = document.createElement("div");
-  box.classList.add("weather-box");
+function getTemp(data) {}
 
-  const icon = document.createElement("img");
-  icon.src = getIconSrc(data);
+// function createBox(data) {
+//   const box = document.createElement("div");
+//   box.classList.add("weather-box");
 
-  const condition = document.createElement("p");
-  condition.classList.add(".condition");
-  condition.textContent = data.condition;
+//   const icon = document.createElement("img");
+//   icon.src = getIconSrc(data);
 
-  const temp = document.createElement("p");
-  temp.textContent = data.temp_c;
+//   const condition = document.createElement("p");
+//   condition.classList.add(".condition");
+//   condition.textContent = data.condition;
 
-  box.appendChild(icon);
-  box.appendChild(condition);
-  box.appendChild(temp);
+//   const temp = document.createElement("p");
+//   temp.textContent = data.temp_c;
 
-  return box;
-}
+//   box.appendChild(icon);
+//   box.appendChild(condition);
+//   box.appendChild(temp);
+
+//   return box;
+// }

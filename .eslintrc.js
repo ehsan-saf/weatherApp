@@ -21,5 +21,6 @@ module.exports = {
   },
   rules: {
     "no-use-before-define": "off",
+    camelcase: "off",
   },
 };

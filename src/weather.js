@@ -1,7 +1,7 @@
-export default async function getWeather(location) {
-  const data = await getData(location);
+export default async function getWeather(locationName) {
+  const data = await getData(locationName);
   console.log(data);
-  const { current } = data;
+  const { current, location } = data;
   return {
     condition: current.condition.text,
     icon: current.condition.icon,
@@ -9,6 +9,10 @@ export default async function getWeather(location) {
     temp_c: current.temp_c,
     temp_f: current.temp_f,
     humidity: current.humidity,
+    wind: current.wind_kph,
+    uv: current.uv,
+    country: location.country,
+    city: location.name,
   };
 }
 
