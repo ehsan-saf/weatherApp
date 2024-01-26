@@ -14,8 +14,16 @@ div {
 
 .container {
   display: grid;
-  grid-template-rows: 1fr 2fr 2fr;
+  grid-template-columns: 1fr 1fr;
   height: 85svh;
+}
+
+/* Main Today Weather */
+
+.today-main {
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: 75px 1fr;
 }
 
 /* Search Location */
@@ -23,7 +31,8 @@ div {
 .search-area {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  margin-top: 7px;
 }
 
 .search-input-btn {
@@ -74,6 +83,27 @@ div {
 
 .search-button:hover svg {
   fill: white;
+}
+
+/* Basic Info */
+
+.basic-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.basic-date {
+  display: grid;
+  gap: 5px;
+}
+
+.basic-weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 1.1em;
 }
 
 /* Weathers List */
