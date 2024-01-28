@@ -1,8 +1,12 @@
+let currentWeather = {};
+let forecastWeather = [];
+
 export default async function getWeather(locationName) {
   const data = await getData(locationName);
+  getForecast(data);
   const { current, location } = data;
   const { sunrise, sunset } = data.forecast.forecastday[0].astro;
-  return {
+  currentWeather = {
     condition: current.condition.text,
     icon: current.condition.icon,
     is_day: current.is_day,
@@ -18,12 +22,29 @@ export default async function getWeather(locationName) {
     sunrise,
     sunset,
   };
+  return currentWeather;
+}
+
+async function getForecast(data) {
+  const days = [];
+  const dt = await data;
+  dt.forecast.forecastday.forEach((el) => {
+    const { day } = el;
+    days.push({
+      avgtemp_c: day.avgtemp_c,
+      avgtemp_f: day.avgtemp_f,
+      mintemp_c: day.mintemp_c,
+      mintemp_f: day.mintemp_f,
+      maxtemp_c: day.maxtemp_c,
+      maxtemp_f: day.maxtemp_f,
+    });
+  });
+  forecastWeather = days;
 }
 
 async function getData(location) {
-  const address = `https://api.weatherapi.com/v1/forecast.json?key=92af089f4bee44ea93b193454241501&q=${location}`;
+  const address = `https://api.weatherapi.com/v1/forecast.json?key=92af089f4bee44ea93b193454241501&days=3&q=${location}`;
   const request = await fetch(address);
-  console.log(request);
   const response = await request.json();
   console.log(response);
   return response;
