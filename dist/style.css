@@ -144,6 +144,14 @@ div {
   display: flex;
 }
 
+.today-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
 .c1 {
   align-items: center;
   gap: 3px;
@@ -157,6 +165,18 @@ div {
 
 .c3 {
   display: flex;
+}
+
+.c4 {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.sun {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Full Weather Info */

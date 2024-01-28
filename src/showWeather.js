@@ -2,6 +2,8 @@ import getDateInfo from "./date";
 
 const location = document.querySelector(".location");
 const date = document.querySelector(".date");
+const sunrise = document.querySelector(".sunrise");
+const sunset = document.querySelector(".sunset");
 const today_icon = document.querySelector(".today-icon");
 const today_temp = document.querySelector(".today-temp");
 const today_feel = document.querySelector(".today-feel");
@@ -20,6 +22,8 @@ function setMainData(data) {
   location.textContent = `${data.city} , ${data.country}`;
   today_icon.src = getIconSrc(data);
   date.textContent = getDateInfo();
+  sunrise.textContent = data.sunrise;
+  sunset.textContent = data.sunset;
   today_temp.textContent = `${data.temp_c} °C`;
   today_feel.textContent = `feels ${data.feel_c} °C`;
   today_condition.textContent = data.condition;
