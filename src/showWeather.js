@@ -4,20 +4,24 @@ const location = document.querySelector(".location");
 const date = document.querySelector(".date");
 const today_icon = document.querySelector(".today-icon");
 const today_temp = document.querySelector(".today-temp");
+const today_feel = document.querySelector(".today-feel");
 const today_condition = document.querySelector(".today-condition");
 const today_humidity = document.querySelector(".today-humidity");
 const today_wind = document.querySelector(".today-wind");
 const today_uv = document.querySelector(".today-uv");
 
 export default function displayWeather(data) {
+  // console.log(data);
   setMainData(data);
 }
 
 function setMainData(data) {
+  console.log(data);
   location.textContent = `${data.city} , ${data.country}`;
   today_icon.src = getIconSrc(data);
   date.textContent = getDateInfo();
-  today_temp.textContent = `${data.temp_c}`;
+  today_temp.textContent = `${data.temp_c} °C`;
+  today_feel.textContent = `feels ${data.feel_c} °C`;
   today_condition.textContent = data.condition;
   today_humidity.textContent = `Humidity: ${data.humidity}%`;
   today_wind.textContent = `Wind: ${data.wind} kph`;
