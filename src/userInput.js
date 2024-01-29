@@ -16,6 +16,7 @@ export default function initControls() {
 }
 
 function getInput() {
+  locationList.style.display = "none";
   let location = "";
   if (selectedValue !== "") {
     location = selectedValue;

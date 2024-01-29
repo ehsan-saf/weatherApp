@@ -11,6 +11,9 @@ const today_condition = document.querySelector(".today-condition");
 const today_humidity = document.querySelector(".today-humidity");
 const today_wind = document.querySelector(".today-wind");
 const today_uv = document.querySelector(".today-uv");
+const today_vis = document.querySelector(".today-vis");
+const today_rain = document.querySelector(".today-rain");
+const today_snow = document.querySelector(".today-snow");
 
 export default function displayWeather(data) {
   // console.log(data);
@@ -30,6 +33,9 @@ function setMainData(data) {
   today_humidity.textContent = `Humidity: ${data.humidity}%`;
   today_wind.textContent = `Wind: ${data.wind} kph`;
   today_uv.textContent = `UV: ${data.uv}`;
+  today_vis.textContent = `Visibility: ${data.vis_km} km`;
+  today_rain.textContent = `Chance of Rain: ${data.chance_rain}%`;
+  today_snow.textContent = `Chance of Snow ${data.chance_snow}%`;
 }
 
 function getIconSrc(data) {

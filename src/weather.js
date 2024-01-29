@@ -6,6 +6,8 @@ export default async function getWeather(locationName) {
   getForecast(data);
   const { current, location } = data;
   const { sunrise, sunset } = data.forecast.forecastday[0].astro;
+  const { daily_chance_of_rain, daily_chance_of_snow } =
+    data.forecast.forecastday[0].day;
   currentWeather = {
     condition: current.condition.text,
     icon: current.condition.icon,
@@ -17,6 +19,9 @@ export default async function getWeather(locationName) {
     humidity: current.humidity,
     wind: current.wind_kph,
     uv: current.uv,
+    vis_km: current.vis_km,
+    chance_rain: daily_chance_of_rain,
+    chance_snow: daily_chance_of_snow,
     country: location.country,
     city: location.name,
     sunrise,
@@ -31,6 +36,8 @@ async function getForecast(data) {
   dt.forecast.forecastday.forEach((el) => {
     const { day } = el;
     days.push({
+      condition: day.condition.text,
+      icon: day.condition.icon,
       avgtemp_c: day.avgtemp_c,
       avgtemp_f: day.avgtemp_f,
       mintemp_c: day.mintemp_c,
