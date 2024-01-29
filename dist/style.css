@@ -5,20 +5,24 @@
 }
 
 :root {
-  --input-border-color: rgb(70, 70, 255);
+  --input-border-color: #235789;
+  --secondory-color: #235789;
 }
 
 body {
+  height: 100svh;
+  color: var(--secondory-color);
+  background: #fdfffc;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 div {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  justify-content: center;
   height: 85svh;
 }
 
@@ -29,6 +33,7 @@ div {
   display: grid;
   grid-template-rows: 75px 1fr;
   justify-items: center;
+  padding: 10px;
 }
 
 /* Search Location */
@@ -185,9 +190,16 @@ div {
 .full-info {
   display: grid;
   justify-items: center;
+  align-items: center;
   grid-template-columns: repeat(3, minmax(220px, 1fr));
   grid-template-rows: repeat(2, 100px);
+
   width: 100%;
+
+  border: 2px solid var(--secondory-color);
+  border-radius: 10px;
+
+  font-size: 1.2rem;
 }
 
 .today-main p::before {
