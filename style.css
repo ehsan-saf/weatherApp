@@ -7,12 +7,13 @@
 :root {
   --input-border-color: #235789;
   --secondory-color: #235789;
+  --bg-color: #fdfffc;
 }
 
 body {
   height: 100svh;
   color: var(--secondory-color);
-  background: #fdfffc;
+  background: var(--bg-color);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
@@ -124,6 +125,35 @@ div {
 
 .search-button:hover svg {
   fill: white;
+}
+
+/* Temp Toggle */
+
+.temp-toggle {
+  position: relative;
+  padding: 20px 40px;
+  border: 1px solid var(--secondory-color);
+  border-radius: 22px;
+  cursor: pointer;
+}
+
+.toggle-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background-color: var(--secondory-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.toggle-circle:hover {
+  background-color: #487095;
+}
+
+.toggle {
+  transform: translateX(100%);
 }
 
 /* Basic Info */
@@ -247,7 +277,7 @@ div {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fdfffc;
+  color: var(--bg-color);
   background-color: var(--secondory-color);
   border-radius: 5px 5px 0 0;
   padding: 5px;
