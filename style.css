@@ -43,15 +43,17 @@ div {
 
 .search-area {
   display: flex;
-  justify-content: center;
+  flex-direction: row-reverse;
   align-items: start;
   margin-top: 7px;
+  width: 100%;
 }
 
 .search-input-btn {
   position: relative;
   display: flex;
   align-items: center;
+  margin: 0 auto;
 }
 
 .location-input {
@@ -140,7 +142,7 @@ div {
 .toggle-circle {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   padding: 20px;
   background-color: var(--secondory-color);
   border-radius: 50%;
@@ -153,7 +155,24 @@ div {
 }
 
 .toggle {
-  transform: translateX(100%);
+  transform: translateX(-100%);
+}
+
+.temp-toggle p {
+  position: absolute;
+  top: 7px;
+  color: var(--bg-color);
+  font-size: 1.4rem;
+  user-select: none;
+  z-index: 1;
+}
+
+.cel {
+  right: 8px;
+}
+
+.fah {
+  left: 8px;
 }
 
 /* Basic Info */
